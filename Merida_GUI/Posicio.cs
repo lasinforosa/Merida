@@ -38,10 +38,6 @@ public class Posicio
         Jugada[] jugPsPosibles = new Jugada[255];
 
 
-
-   
-        
-
     public Posicio()
 	{
         enrocs = 0;
@@ -55,7 +51,7 @@ public class Posicio
                 
     }
 
-    public void setPosicio(int[,] board, int[] blancas, int[] negras, int[,] colores, int enroques,
+    public void setPosicio(sbyte[,] board, sbyte[] blancas, sbyte[] negras, sbyte[,] colores, sbyte enroques,
                             int alPaso, int halfmov, int mou, double hash, double elValor)
     {
         int i, j;
@@ -81,6 +77,52 @@ public class Posicio
         torn = mou;
         hashPos = hash;
         valorPos = elValor;
+    }
+
+    public string cas2Sq(cassella cas)
+    {
+        string[,] Squares = {{"a8","b8","c8","d8","e8","f8","g8","h8" },
+                            {"a7","b7","c7","d7","e7","f7","g7","h7" },
+                            {"a6","b7","c7","d7","e7","f7","g7","h7" },
+                            {"a5","b7","c7","d7","e7","f7","g7","h7" },
+                            {"a4","b4","c4","d4","e7","f7","g7","h7" },
+                            {"a3","b3","c3","d3","e3","f3","g3","h3" },
+                            {"a4","b4","c4","d4","e7","f7","g7","h7" },
+                            {"a3","b3","c3","d3","e3","f3","g3","h3" }};
+
+        return Squares[cas.fila, cas.columna];
+    }
+
+    public sbyte cas2B64(cassella cas)
+    {
+        sbyte[,] board64 = {{0,1,2,3,4,5,6,7},
+                            {8,9,10,11,12,13,14,15},
+                            {16,17,18,19,20,21,22,23},
+                            {16,17,18,19,20,21,22,23},
+                            {16,17,18,19,20,21,22,23},
+                            {16,17,18,19,20,21,22,23},
+                            {16,17,18,19,20,21,22,23},
+                            {16,17,18,19,20,21,22,63}};
+
+        return board64[cas.fila, cas.columna];
+    }
+
+    public cassella sq2Cas(string sq)
+    {
+        cassella sortida;
+
+        return sortida;
+    }
+
+    public cassella b64ToCas(sbyte n)
+    {
+        cassella sortida;
+
+        sortida.fila = n / 8;
+        sortida.columna = n % 8 ;
+
+        return sortida;
+
     }
 
 
@@ -197,7 +239,7 @@ public class Posicio
         */
 
         /* actualitzem els registres de Posicio */
-        if (quiMou == BLANC)
+        if (torn == BLANC)
         {
             if (colorCasselles[jug.getFinal()] == NEGRE)
             {
@@ -216,77 +258,86 @@ public class Posicio
             pecesNegres[tauler[jug.getInicial()]] = jug.getFinal();
         }
         /* canvia el torn de joc */
-        quiMou = quiMou * NEGRE;
+        torn *= NEGRE;
 
     }
 
     public void imprimeixtauler()
     {
-        int i;
+        int i,j;
         int compta = 0;
         char[] nomPeces = { 'K', 'Q', 'R', 'B', 'N', 'P', 'k', 'q', 'r', 'b', 'n', 'p' };
 
         printf("   +---+---+---+---+---+---+---+---+\n");
         printf("   +");
 
-        for (i = 0; i < 64; i++)
+        for (i = 0; i < 8; i++)
         {
-
-            switch (tauler[i])
+            for (j = 0; j < 8; j++)
             {
 
-                case REI:
-                    printf(" %c +", nomPeces[0]);
-                    break;
-                case -REI:
-                    printf(" %c +", nomPeces[6]);
-                    break;
-                case DAMA:
-                    printf(" %c +", nomPeces[1]);
-                    break;
-                case -DAMA:
-                    printf(" %c +", nomPeces[7]);
-                    break;
-                case TORRE:
-                    printf(" %c +", nomPeces[2]);
-                    break;
-                case -TORRE:
-                    printf(" %c +", nomPeces[8]);
-                    break;
-                case ALFIL:
-                    printf(" %c +", nomPeces[3]);
-                    break;
-                case -ALFIL:
-                    printf(" %c +", nomPeces[9]);
-                    break;
-                case CAVALL:
-                    printf(" %c +", nomPeces[4]);
-                    break;
-                case -CAVALL:
-                    printf(" %c +", nomPeces[10]);
-                    break;
-                case PEO:
-                    printf(" %c +", nomPeces[5]);
-                    break;
-                case -PEO:
-                    printf(" %c +", nomPeces[11]);
-                    break;
+                switch (tauler[i, j])
+                {
 
-                default:
-                    printf("   +");
-                    break;
+                    case Rb:
+                        printf(" %c +", nomPeces[0]);
+                        break;
+                    case Rn:
+                        printf(" %c +", nomPeces[6]);
+                        break;
+                    case Db:
+                        printf(" %c +", nomPeces[1]);
+                        break;
+                    case Dn:
+                        printf(" %c +", nomPeces[7]);
+                        break;
+                    case Tb:
+                        printf(" %c +", nomPeces[2]);
+                        break;
+                    case Tn:
+                        printf(" %c +", nomPeces[8]);
+                        break;
+                    case Ab:
+                        printf(" %c +", nomPeces[3]);
+                        break;
+                    case An:
+                        printf(" %c +", nomPeces[9]);
+                        break;
+                    case Cb:
+                        printf(" %c +", nomPeces[4]);
+                        break;
+                    case Cn:
+                        printf(" %c +", nomPeces[10]);
+                        break;
+                    case Pb:
+                        printf(" %c +", nomPeces[5]);
+                        break;
+                    case Pn:
+                        printf(" %c +", nomPeces[11]);
+                        break;
+
+                    default:
+                        printf("   +");
+                        break;
+                }
             }
 
-            if ((i & 7) == 7)
+            if (j == 7)
             {
                 compta++;
-                printf(" %d", 9 - compta);
-                printf("\n");
-                printf("   +---+---+---+---+---+---+---+---+\n");
-                printf("   +");
+                Console.Write(" %d", 8 - j);
+                Console.Write("\n");
+                Console.Write("   +---+---+---+---+---+---+---+---+\n");
+                Console.Write("   +");
             }
         }
 
-        printf(" a   b   c   d   e   f   g   h   \n");
+        Console.Write(" a   b   c   d   e   f   g   h   \n");
     }
+}
+
+public struct cassella
+{
+    public sbyte fila;
+    public sbyte columna;
 }
