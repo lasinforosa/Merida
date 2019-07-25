@@ -88,8 +88,17 @@ namespace Merida_Gui
 
         public void InitPos()
         {
-            
+            int i, j;
 
+            for (i = 0; i < 8; i++)
+            {
+                for (j = 0; j < 8; j++)
+                {
+                    cNegre[i, j] = (i + j) % 2 == 0 ? (sbyte)0 : (sbyte)1;
+                }
+            }
+                
+            mainPos.posicioInicial();
             Rb_Blanc.Checked = true;
             Rb_Negre.Checked = false;
 
