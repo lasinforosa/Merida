@@ -1,0 +1,12 @@
+C:\prg\cpp\Merida_GUI\obj\Debug\Merida_Gui.csprojAssemblyReference.cache
+C:\prg\cpp\Merida_GUI\obj\Debug\Merida_Gui.Form1.resources
+C:\prg\cpp\Merida_GUI\obj\Debug\Merida_Gui.Properties.Resources.resources
+C:\prg\cpp\Merida_GUI\obj\Debug\Merida_Gui.Resource1.resources
+C:\prg\cpp\Merida_GUI\obj\Debug\Merida_Gui.csproj.GenerateResource.cache
+C:\prg\cpp\Merida_GUI\obj\Debug\Merida_Gui.csproj.CoreCompileInputs.cache
+C:\Users\Nat PV\source\repos\Merida_GUI\obj\Debug\Merida_Gui.csprojAssemblyReference.cache
+C:\Users\Nat PV\source\repos\Merida_GUI\obj\Debug\Merida_Gui.Form1.resources
+C:\Users\Nat PV\source\repos\Merida_GUI\obj\Debug\Merida_Gui.Properties.Resources.resources
+C:\Users\Nat PV\source\repos\Merida_GUI\obj\Debug\Merida_Gui.Resource1.resources
+C:\Users\Nat PV\source\repos\Merida_GUI\obj\Debug\Merida_Gui.csproj.GenerateResource.cache
+C:\Users\Nat PV\source\repos\Merida_GUI\obj\Debug\Merida_Gui.csproj.CoreCompileInputs.cache
