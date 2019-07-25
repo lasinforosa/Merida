@@ -1,2 +1,2 @@
 # Merida
-Chess program (module and graphic)
+Chess program (module and graphic) C#
